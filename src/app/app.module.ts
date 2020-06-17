@@ -22,6 +22,7 @@ import { AdminSidebarComponent } from './admin/components/admin-sidebar/admin-si
 import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
 import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RegisterComponent } from './auth/components/register/register.component
     AdminSidebarComponent,
     AdminProductCreateComponent,
     RegisterComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     FormsModule,
