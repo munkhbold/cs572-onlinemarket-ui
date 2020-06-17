@@ -36,7 +36,7 @@
   
           <div *ngFor="let product of products" class="col-lg-3 col-md-6 mb-3">
             <div class="card h-100">
-              <a [routerLink]="['product-detail']"><img class="card-img-top" src="{{product.thumbnail}}" alt=""></a>
+              <a [routerLink]="['product-detail']"><img class="card-img-top" src="{{product.imageUrl[0]}}" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a [routerLink]="['product-detail']">{{product.name}}</a>

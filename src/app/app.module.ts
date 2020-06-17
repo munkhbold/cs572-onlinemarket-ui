@@ -13,15 +13,16 @@ import { AdminCoreComponent } from './admin/components/admin-core/admin-core.com
 import { AdminHeaderComponent } from './admin/components/admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin/components/admin-footer/admin-footer.component';
 import { LoginComponent } from './auth/components/login/login.component';
-import { OrderService } from './services/order.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
 import { AdminSidebarComponent } from './admin/components/admin-sidebar/admin-sidebar.component';
 import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
 import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { OrderService } from './services/order.service';
+import { AuthService } from './services/auth.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { RegisterComponent } from './auth/components/register/register.component
   providers: [
     OrderService,
     AuthService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
