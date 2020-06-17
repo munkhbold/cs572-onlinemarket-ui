@@ -6,7 +6,7 @@ import { ProductListComponent } from './shop/components/product-list/product-lis
 import { AdminCoreComponent } from './admin/components/admin-core/admin-core.component';
 import { AdminProductListComponent } from './admin/components/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './auth/components/login/login.component';
-
+import { RegisterComponent } from './auth/components/register/register.component';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
       }]
   },
   { path: 'login', component: LoginComponent },
-  // { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'admin',
     component: AdminCoreComponent,
     children: [{

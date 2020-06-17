@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    // RegisterComponent,
+    RegisterComponent,
     ProductDetailComponent,
     ProductListComponent,
     AdminCoreComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminProductListComponent,
+    RegisterComponent,
   ],
   imports: [
     FormsModule,

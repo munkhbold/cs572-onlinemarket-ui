@@ -8,8 +8,11 @@ export class AuthService {
   }
 
   login(credentials) { 
-    console.log(credentials);
     return this.http.post<any>('http://localhost:3000/login', credentials);
+  }
+
+  register(credentials) {
+    return this.http.post<any>('http://localhost:3000/register/buyer', credentials);
   }
 
   logout() { 
@@ -24,6 +27,7 @@ export class AuthService {
     let isExpired = jwtHelper.isTokenExpired(token);
     return !isExpired;
   }
+  
   get currentUser() {
     let token = localStorage.getItem('token');
     if (!token) return false;

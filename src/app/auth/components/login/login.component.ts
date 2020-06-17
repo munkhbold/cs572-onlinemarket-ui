@@ -27,9 +27,6 @@ export class LoginComponent {
         },
         err => {
           this.invalidLogin = true; 
-        },
-        () => {
-          console.log('complete request');
         }
       );
   }
