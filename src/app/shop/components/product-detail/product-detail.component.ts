@@ -14,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
   productName: string;
   productDescription: string;
   productQuantity: number;
-  productImagesURLs: any;
+  productImagesURL: any;
   productPrice: number;
   productReviews: any;
 
@@ -29,10 +29,15 @@ export class ProductDetailComponent implements OnInit {
           this.product = res.result.product;
           this.productName = this.product.name;
           this.productDescription = this.product.description;
-          this.productImagesURLs = this.product.imageUrl;
+          if (!this.product.imageUrl) {
+
+          }
+          this.productImagesURL = !this.product.imageUrl ? 
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpIWnetnfnL79KtfVSodVB06fDvWs_hCTmTSDlvKb4hZNNUFqn&usqp=CAU' :
+                                  this.product.imageUrl[0];
           this.productReviews = this.product.reviews;
           this.productPrice = this.product.unitPrice;
-          console.log(this.productImagesURLs);
+          console.log(this.productImagesURL);
           console.log(this.product);
         },
         err => {
