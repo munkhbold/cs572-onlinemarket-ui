@@ -12,13 +12,15 @@ import { ProductListComponent } from './shop/components/product-list/product-lis
 import { AdminCoreComponent } from './admin/components/admin-core/admin-core.component';
 import { AdminHeaderComponent } from './admin/components/admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin/components/admin-footer/admin-footer.component';
-import { AdminProductListComponent } from './admin/components/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { OrderService } from './services/order.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { AdminSidebarComponent } from './admin/components/admin-sidebar/admin-sidebar.component';
+import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
+import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { AuthService } from './services/auth.service';
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminProductListComponent,
+    AdminSidebarComponent,
+    AdminProductCreateComponent,
   ],
   imports: [
     FormsModule,
