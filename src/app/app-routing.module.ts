@@ -4,8 +4,10 @@ import { CoreComponent } from './shop/components/core/core.component';
 import { ProductDetailComponent } from './shop/components/product-detail/product-detail.component';
 import { ProductListComponent } from './shop/components/product-list/product-list.component';
 import { AdminCoreComponent } from './admin/components/admin-core/admin-core.component';
-import { AdminProductListComponent } from './admin/components/admin-product-list/admin-product-list.component';
 import { LoginComponent } from './auth/components/login/login.component';
+import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
+import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
+
 import { RegisterComponent } from './auth/components/register/register.component';
 
 const routes: Routes = [
@@ -23,10 +25,17 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin',
     component: AdminCoreComponent,
-    children: [{
-      path: '',
-      component: AdminProductListComponent
-    }]
+    children: [
+      {
+        path: '',
+        component: AdminProductListComponent
+      },
+      {
+        path: 'products/create',
+        component: AdminProductCreateComponent
+      },
+
+  ]
   }
 ];
 

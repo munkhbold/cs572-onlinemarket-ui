@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-core',
   templateUrl: './core.component.html',
-  styles: []
+  styleUrls: ['./core.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CoreComponent implements OnInit {
   products: any[] = [
