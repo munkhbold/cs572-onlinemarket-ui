@@ -9,6 +9,7 @@ import { AdminProductCreateComponent } from './admin/components/product/admin-pr
 import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
 
 import { RegisterComponent } from './auth/components/register/register.component';
+import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,12 @@ const routes: Routes = [
     children: [{
         path: '', component: ProductListComponent
       },
-      { path: 'products/:id', component: ProductDetailComponent }
+      { 
+        path: 'products/:id', component: ProductDetailComponent 
+      },
+      {
+        path: 'shopping-cart', component: ShoppingCartComponent
+      }
     ]
   },
   { path: 'login', component: LoginComponent },

@@ -20,6 +20,7 @@ import { AdminSidebarComponent } from './admin/components/admin-sidebar/admin-si
 import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
 import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 import { OrderService } from './services/order.service';
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
@@ -41,7 +42,8 @@ import { ActivatedRoute } from '@angular/router';
     AdminProductListComponent,
     AdminSidebarComponent,
     AdminProductCreateComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     FormsModule,
