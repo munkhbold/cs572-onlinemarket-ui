@@ -25,11 +25,21 @@
   }
   .form-register input[type="email"] {
     margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0;
   }
   .form-register input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+  .form-register #inputFirstname {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-register #inputLastname {
+    margin-bottom: -1px;
+    border-radius: 0;
+  }
+  
+  

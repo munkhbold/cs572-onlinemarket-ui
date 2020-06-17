@@ -9,6 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent {
 
+  invalidRegister: boolean;
+  invalidMessage: String;
+
   constructor(
     private router: Router, 
     private authService: AuthService) { }
@@ -20,7 +23,8 @@ export class RegisterComponent {
           this.router.navigate(['/login']);
         },
         err => {
-          console.log(err);
+          this.invalidRegister = true;
+          this.invalidMessage = err.error.result.errors[0];
         }
       );
   }
