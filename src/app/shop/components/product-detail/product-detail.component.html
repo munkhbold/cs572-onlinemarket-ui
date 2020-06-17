@@ -10,10 +10,8 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div *ngFor="let imageURL of productImagesURLs">
-                <div class="carousel-item active">
-                  <img class="d-block img-fluid" src="{{imageURL}}" alt="the image">
-                </div>
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="{{productImagesURLs[0]}}" alt="the image">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -32,7 +30,7 @@
         <!-- /.card -->
         <div class="card-body">
             <h3 class="card-title">{{productName}}</h3>
-            <h4>$24.99</h4>
+            <h4></h4>
             <p class="card-text">{{productDescription}}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars

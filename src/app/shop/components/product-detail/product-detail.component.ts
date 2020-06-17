@@ -15,10 +15,8 @@ export class ProductDetailComponent implements OnInit {
   productDescription: string;
   productQuantity: number;
   productImagesURLs: any;
-
-  productReviews = [
-    1, 2, 3
-  ];
+  productPrice: number;
+  productReviews: any;
 
   constructor(private route: ActivatedRoute, private productService : ProductService) { }
 
@@ -33,6 +31,7 @@ export class ProductDetailComponent implements OnInit {
           this.productDescription = this.product.description;
           this.productImagesURLs = this.product.imageUrl;
           this.productReviews = this.product.reviews;
+          this.productPrice = this.product.unitPrice;
           console.log(this.productImagesURLs);
           console.log(this.product);
         },
