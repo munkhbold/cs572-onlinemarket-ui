@@ -1,5 +1,6 @@
 <form class="form-register" #f="ngForm" (ngSubmit)="register(f.value)">
     <h2 class="form-register-heading">Please register in</h2>
+    <div *ngIf="invalidRegister" class="alert alert-danger">{{invalidMessage}}</div>
     <label for="inputFirstname" class="sr-only">First name</label>
     <input type="text" id="inputFirstname" name="firstname" ngModel class="form-control" placeholder="First name" required autofocus>
     <label for="inputLastname" class="sr-only">Last name</label>
