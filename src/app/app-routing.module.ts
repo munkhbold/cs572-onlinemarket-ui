@@ -17,9 +17,8 @@ const routes: Routes = [
     children: [{
         path: '', component: ProductListComponent
       },
-      {
-        path: 'product-detail', component: ProductDetailComponent
-      }]
+      { path: 'products/:id', component: ProductDetailComponent }
+    ]
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

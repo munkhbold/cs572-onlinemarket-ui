@@ -23,6 +23,7 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { OrderService } from './services/order.service';
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ProductService } from './services/product.service';
     AdminProductListComponent,
     AdminSidebarComponent,
     AdminProductCreateComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     FormsModule,
