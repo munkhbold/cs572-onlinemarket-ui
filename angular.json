@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "onlineMarketUI"
+    }
+  },
+  "defaultProject": "onlineMarketUI",
+  "cli": {
+    "analytics": "1429ef85-7688-41dd-9bdb-723206dbe190"
+  }
 }
