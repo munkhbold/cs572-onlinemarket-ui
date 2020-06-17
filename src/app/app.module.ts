@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
 import { AdminSidebarComponent } from './admin/components/admin-sidebar/admin-sidebar.component';
 import { AdminProductCreateComponent } from './admin/components/product/admin-product-create/admin-product-create.component';
 import { AdminProductListComponent } from './admin/components/product/admin-product-list/admin-product-list.component';
+import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    // RegisterComponent,
+    RegisterComponent,
     ProductDetailComponent,
     ProductListComponent,
     AdminCoreComponent,
@@ -38,6 +39,7 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
     AdminProductListComponent,
     AdminSidebarComponent,
     AdminProductCreateComponent,
+    RegisterComponent,
   ],
   imports: [
     FormsModule,
