@@ -20,7 +20,7 @@ export class RegisterComponent {
           this.router.navigate(['/login']);
         },
         err => {
-          console.log(err);
+          console.log(err.error.result.errors[0]);
         }
       );
   }
