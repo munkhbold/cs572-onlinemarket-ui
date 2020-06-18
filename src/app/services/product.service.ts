@@ -40,5 +40,12 @@ export class ProductService {
     return this.http.get<any>('http://localhost:3000/shopping-cart', header);
   }
 
+  addReview(productId: string, comment: string){
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.post<any>(`http://localhost:3000/products/${productId}/reviews`, {comment}, header);
+  }
 
 }
