@@ -52,7 +52,7 @@
           </div>
           <div class="card-footer">
             STATUS <span class="badge badge-secondary">{{ order.status }}</span>
-            <span *ngIf="order.status !== 'canceled'" class="float-right"><a href="javascript:void(0)" (click)="cancelOrder(order._id)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
+            <span *ngIf="order.status === 'ordered'" class="float-right"><a href="javascript:void(0)" (click)="cancelOrder(order._id)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
         </div>
         </div>
     </div>
