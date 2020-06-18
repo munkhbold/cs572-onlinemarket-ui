@@ -7,7 +7,7 @@
 <div class="card mb-4">
     <div class="card-body">
         <div class="float-right">
-            <a [routerLink]="['products/create']">
+            <a [routerLink]="['/admin/products/create']">
             <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i> Create New Product</button>
             </a>
         </div>
@@ -31,7 +31,7 @@
                         <td><img style="width: 100px;" src="{{product.imageUrl[0]}}"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.description | slice:0:50}} ...</td>
-                        <td><a class="btn" href="javascript:void(0)" [routerLink]="[product._id, 'update']"><i class="icon-edit"></i> Edit</a></td>
+                        <td><a class="btn" [routerLink]="['/admin/products', product._id, 'update']"><i class="icon-edit"></i> Edit</a></td>
                     </tr>
                 </tbody>
             </table>
