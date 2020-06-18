@@ -12,6 +12,7 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './shop/components/checkout/checkout.component';
 import { CheckoutSuccessComponent } from './shop/components/checkout-success/checkout-success.component';
+import { OrderListComponent } from './shop/components/order-list/order-list.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
       },
       {
         path: 'checkout/done', component: CheckoutSuccessComponent
+      },
+      {
+        path: 'order/history', component: OrderListComponent
       },
     ]
   },

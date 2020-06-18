@@ -10,12 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent {
 
   invalidRegister: boolean;
-  invalidMessage: String;
+  invalidMessage: string;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService) { }
-    
+
   register(credentials) {
     this.authService.register(credentials)
       .subscribe(

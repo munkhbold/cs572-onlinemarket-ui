@@ -26,6 +26,7 @@ import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
 import { CheckoutComponent } from './shop/components/checkout/checkout.component';
 import { CheckoutSuccessComponent } from './shop/components/checkout-success/checkout-success.component';
+import { OrderListComponent } from './shop/components/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CheckoutSuccessComponent } from './shop/components/checkout-success/che
     ShoppingCartComponent,
     CheckoutComponent,
     CheckoutSuccessComponent,
+    OrderListComponent,
   ],
   imports: [
     FormsModule,
