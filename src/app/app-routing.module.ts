@@ -10,6 +10,7 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
 
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './shop/components/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -18,12 +19,15 @@ const routes: Routes = [
     children: [{
         path: '', component: ProductListComponent
       },
-      { 
-        path: 'products/:id', component: ProductDetailComponent 
+      {
+        path: 'products/:id', component: ProductDetailComponent
       },
       {
         path: 'shopping-cart', component: ShoppingCartComponent
-      }
+      },
+      {
+        path: 'checkout', component: CheckoutComponent
+      },
     ]
   },
   { path: 'login', component: LoginComponent },
