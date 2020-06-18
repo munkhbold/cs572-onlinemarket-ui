@@ -32,5 +32,13 @@ export class ProductService {
 
   }
 
+  getItemsInCart() {
+    let token = localStorage.getItem('token');
+    let header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    }
+    return this.http.get<any>('http://localhost:3000/shopping-cart', header);
+  }
+
 
 }

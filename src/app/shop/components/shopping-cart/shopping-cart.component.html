@@ -4,97 +4,43 @@
         <h3 class="p-1">Items in your cart</h3>
         <span class="p-1"><a href="#" class="btn btn-warning">Checkout</a></span>
       </div>
-      <div class="list-group-item list-group-item-action ">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="http://placehold.it/100x100">
-            </div>
-            <div class="col-md-10">
-                <div class="d-flex w-100 justify-content-between">
-                    <div>
-                        <h5 class="p-1">Product name</h5>
-                    </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
-                    </div>
-                    <div class="p-1">
-                        <input id="idProductQty" value="1" />
-                    </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
-                    </div>
+      <div *ngFor="let item of items">
+        <div class="list-group-item list-group-item-action ">
+            <div class="row">
+                <div class="col-md-2">
+                    <img class="small-img" src="{{item.product.imageUrl[0]}}">
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <p class="mb-1 p-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <span class="p-1"><a href="#">Remove</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="list-group-item list-group-item-action ">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="http://placehold.it/100x100">
-            </div>
-            <div class="col-md-10">
-                <div class="d-flex w-100 justify-content-between">
-                    <div>
-                        <h5 class="p-1">Product name</h5>
+                <div class="col-md-10">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div>
+                            <h5 class="p-1"><a [routerLink]="['/products', item.product._id]">{{item.product.name}}</a></h5>
+                        </div>
+                        <div class="p-1">
+                            <h5 class="mb-1">${{item.product.unitPrice}}</h5>
+                        </div>
+                        <div class="p-1">
+                            <h5 class="mb-1">{{item.quantity}}</h5>
+                        </div>
+                        <div class="p-1">
+                            <h5 class="mb-1">${{item.product.unitPrice * item.quantity}}</h5>
+                        </div>
                     </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-1 p-1">{{item.product.description}}</p>
+                        <span class="p-1"><a href="javascript:void(0)" (click)="cancelProduct(item.product._id)" >Remove</a></span>
                     </div>
-                    <div class="p-1">
-                        <input id="idProductQty" value="1" />
-                    </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
-                    </div>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <p class="mb-1 p-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <span class="p-1"><a href="#">Remove</a></span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="list-group-item list-group-item-action ">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="http://placehold.it/100x100">
-            </div>
-            <div class="col-md-10">
-                <div class="d-flex w-100 justify-content-between">
-                    <div>
-                        <h5 class="p-1">Product name</h5>
-                    </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
-                    </div>
-                    <div class="p-1">
-                        <input id="idProductQty" value="1" />
-                    </div>
-                    <div class="p-1">
-                        <h5 class="mb-1">$1500.00</h5>
-                    </div>
-                </div>
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <p class="mb-1 p-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <span class="p-1"><a href="#">Remove</a></span>
-                </div>
-            </div>
         </div>
-    </div>
   </div>
   <!-- Total -->
   <div class="d-flex align-items-end flex-column p-3">
-      Sub total:        $4500.00<br>
+      Sub total:        ${{totalPrice}}.00<br>
       Free shipping:    $0.00<br>
-      Estimated tax:    $45<br>
-      Total:    $4545.00<br>
+      Estimated tax:    $0.00<br>
+      Total:    ${{totalPrice}}.00<br>
   </div>
   
   <!-- /Total -->
