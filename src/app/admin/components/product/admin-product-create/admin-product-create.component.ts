@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-admin-product-create',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    
   }
-
+  createProduct(product) {
+    product.imageUrl = [product.imageUrl];
+    this.productService.createProduct(product).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 }
