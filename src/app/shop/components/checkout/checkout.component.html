@@ -24,30 +24,31 @@
               <h6 class="my-0">User point</h6>
               <small>CURRENCY</small>
             </div>
-            <span class="text-success">-$5</span>
+            <span class="text-success">-${{userPoint / 10}}</span>
+
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
-            <strong>${{totalPriceInCart}}</strong>
+            <strong>${{displayTotalPriceInCart}}</strong>
           </li>
         </ul>
 
-        <form class="card p-2">
           <div class="input-group custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="idPoint">
-            <label class="custom-control-label" for="idPoint">Use point</label>
+            <input type="checkbox" class="custom-control-input" id="isPoint" [(ngModel)]="isPoint" (change)="changeTotalPrice()">
+            <label class="custom-control-label" for="isPoint">Use point</label>
           </div>
-        </form>
+
 
       </div>
       <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Billing address</h4>
         <form class="needs-validation" #f="ngForm" (ngSubmit)="createCheckout(f.value)">
+          <div class="addressContainer">
+          <h4 class="mb-3">Billing address</h4>
           <div class="mb-3">
-            <label for="street">Street</label>
-            <input type="text" name="street" ngModel class="form-control" id="street" placeholder="1234 Main St" required>
-            <div class="invalid-feedback">
-              Please enter your shipping street.
+            <div class="form-group">
+              <label for="street">Street</label>
+              <input type="text" class="form-control" name="street" ngModel class="form-control" id="street" placeholder="1234 Main St" required>
+              <div *ngIf="addressValidation.billingAddress.street" class="invalid-feedback d-block">Please enter your shipping street.</div>
             </div>
           </div>
 
@@ -65,7 +66,7 @@
                 <option>Iowa</option>
                 <option>Texas</option>
               </select>
-              <div class="invalid-feedback">
+              <div *ngIf="addressValidation.billingAddress.state" class="invalid-feedback d-block">
                 Please provide a valid state.
               </div>
             </div>
@@ -77,26 +78,73 @@
                 <option>San Francisco</option>
                 <option>Dubai</option>
               </select>
-              <div class="invalid-feedback">
+              <div *ngIf="addressValidation.billingAddress.city" class="invalid-feedback d-block">
                 Please select a valid city.
               </div>
             </div>
             <div class="col-md-3 mb-3">
               <label for="zip">Zip</label>
               <input type="text" class="form-control" id="zip"  name="zipCode" ngModel  placeholder="" required>
-              <div class="invalid-feedback">
+              <div *ngIf="addressValidation.billingAddress.zipCode" class="invalid-feedback d-block">
                 Zip code required.
               </div>
             </div>
           </div>
+        </div>
+        <div class="addressContainer" *ngIf="isShippingAddress">
+          <h4 class="mb-3">Shipping address</h4>
+          <div class="mb-3">
+            <label for="shippingStreet">Street</label>
+            <input type="text" name="shippingStreet" ngModel class="form-control" id="shippingStreet" placeholder="1234 Main St" required>
+            <div *ngIf="addressValidation.shippingAddress.street" class="invalid-feedback d-block">
+              Please enter your shipping street.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="street2">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="street2" placeholder="Apartment or suite">
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="shippingState">State</label>
+              <select class="custom-select d-block w-100" id="shippingState" name="shippingState" ngModel required>
+                <option value="">Choose...</option>
+                <option>Washington</option>
+                <option>Iowa</option>
+                <option>Texas</option>
+              </select>
+              <div *ngIf="addressValidation.shippingAddress.state" class="invalid-feedback d-block">
+                Please provide a valid state.
+              </div>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="shippingCity">City</label>
+              <select class="custom-select d-block w-100" id="shippingCity" name="shippingCity" ngModel required>
+                <option value="">Choose...</option>
+                <option>San Diago</option>
+                <option>San Francisco</option>
+                <option>Dubai</option>
+              </select>
+              <div *ngIf="addressValidation.shippingAddress.city" class="invalid-feedback d-block">
+                Please select a valid city.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="shippingZip">Zip</label>
+              <input type="text" class="form-control" id="shippingZip"  name="shippingZipCode" ngModel  placeholder="" required>
+              <div *ngIf="addressValidation.shippingAddress.zipCode" class="invalid-feedback d-block">
+                Zip code required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
           <hr class="mb-4">
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="same-address">
+            <input type="checkbox" class="custom-control-input" id="same-address" [(ngModel)]="isShippingAddress">
             <label class="custom-control-label" for="same-address">Shipping address is different as my billing address</label>
-          </div>
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="save-info">
-            <label class="custom-control-label" for="save-info">Save this information for next time</label>
           </div>
           <hr class="mb-4">
 
@@ -150,6 +198,7 @@
             </div>
           </div>
           <hr class="mb-4">
+          <form class="needs-validation" #f="ngForm" (ngSubmit)="createCheckout(f.value)">
           <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
         </form>
       </div>

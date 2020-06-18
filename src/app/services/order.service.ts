@@ -8,6 +8,7 @@ export class OrderService {
   }
 
   createCheckout(addresses) {
+    console.log(addresses);
     const token = localStorage.getItem('token');
     const header = {
       headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
