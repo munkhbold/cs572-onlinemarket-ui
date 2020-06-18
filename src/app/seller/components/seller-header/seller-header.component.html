@@ -23,11 +23,14 @@
           <li *ngIf="!authService.isLoggedIn()" class="nav-item">
             <a class="nav-link" [routerLink]="['/register']">Register</a>
           </li>
-          <li *ngIf="authService.isLoggedIn()" class="nav-item">
-            <a class="nav-link" [routerLink]="['/order/history']">Orders & <small>Returns</small> </a>
+          <li *ngIf="authService.isLoggedIn() && authService.currentUser.role == 'seller'" class="nav-item">
+            <a class="nav-link" [routerLink]="['/seller/add-product']">Add product </a>
           </li>
-          <li *ngIf="authService.isLoggedIn()" class="nav-item">
-            <a class="nav-link" [routerLink]="['/shopping-cart']"><i class="fa fa-shopping-cart"></i></a>
+          <li *ngIf="authService.isLoggedIn() && authService.currentUser.role == 'seller'" class="nav-item">
+            <a class="nav-link" [routerLink]="['/seller']">Products </a>
+          </li>
+          <li *ngIf="authService.isLoggedIn() && authService.currentUser.role == 'seller'" class="nav-item">
+            <a class="nav-link" [routerLink]="['/seller/order']">Orders</a>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
             <a class="nav-link" (click)="authService.logout()">Logout</a>

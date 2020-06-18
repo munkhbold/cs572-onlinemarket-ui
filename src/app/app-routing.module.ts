@@ -11,6 +11,16 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './shop/components/checkout/checkout.component';
+import { CheckoutSuccessComponent } from './shop/components/checkout-success/checkout-success.component';
+import { OrderListComponent } from './shop/components/order-list/order-list.component';
+
+import { SellerCoreComponent } from './seller/components/seller-core/seller-core.component';
+import { ListProductComponent } from './seller/components/list-product/list-product.component';
+import { EditProductComponent } from './seller/components/edit-product/edit-product.component';
+import { DeleteProductComponent } from './seller/components/delete-product/delete-product.component';
+import { AddProductComponent } from './seller/components/add-product/add-product.component';
+
+
 
 const routes: Routes = [
   {
@@ -27,6 +37,12 @@ const routes: Routes = [
       },
       {
         path: 'checkout', component: CheckoutComponent
+      },
+      {
+        path: 'checkout/done', component: CheckoutSuccessComponent
+      },
+      {
+        path: 'order/history', component: OrderListComponent
       },
     ]
   },
@@ -45,6 +61,17 @@ const routes: Routes = [
       },
 
   ]
+  },
+  {
+    path: 'seller',
+    component: SellerCoreComponent,
+    children: [
+      {path: '', component: ListProductComponent},
+      {path: 'add-product', component: AddProductComponent},
+      {path: 'edit-product/:id', component: EditProductComponent},
+      {path: 'delete-product/:id', component: DeleteProductComponent},
+
+    ]
   }
 ];
 
