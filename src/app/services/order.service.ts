@@ -23,11 +23,11 @@ export class OrderService {
     return this.http.get<any>('http://localhost:3000/orders', header);
   }
 
-  cancelOrder(orderId){
+  changeOrderStatus(orderId, status){
     const token = localStorage.getItem('token');
     const header = {
       headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
     };
-    return this.http.put<any>(`http://localhost:3000/orders/${orderId}`, {status: 'canceled'}, header);
+    return this.http.put<any>(`http://localhost:3000/orders/${orderId}`, {status}, header);
   }
 }
