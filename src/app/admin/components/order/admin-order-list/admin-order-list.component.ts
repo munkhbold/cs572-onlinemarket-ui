@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
-  selector: 'app-order-list',
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  selector: 'app-admin-order-list',
+  templateUrl: './admin-order-list.component.html',
+  styleUrls: ['./admin-order-list.component.css']
 })
-export class OrderListComponent implements OnInit {
+export class AdminOrderListComponent implements OnInit {
   orders: any[];
   constructor(private orderService: OrderService) { }
 
@@ -14,17 +14,17 @@ export class OrderListComponent implements OnInit {
     this.orderService.getOrdersByUser().subscribe(
       res => {
         this.orders = res.result;
-      },
-      err => {
-        console.log(err);
       }
     );
   }
 
-  cancelOrder(orderId){
-    this.orderService.changeOrderStatus(orderId, 'canceled').subscribe(
+  changeOrderStatus(orderId, status){
+    this.orderService.changeOrderStatus(orderId, status).subscribe(
       res => {
         this.ngOnInit();
+      },
+      err => {
+        console.log(err);
       }
     );
   }
