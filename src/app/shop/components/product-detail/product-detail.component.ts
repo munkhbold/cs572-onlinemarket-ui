@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../../services/product.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductService } from '../../../services/product.service'; 
 
 @Component({
   selector: 'app-product-detail',
@@ -8,7 +8,7 @@ import { ProductService } from '../../../services/product.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  
+
   product: any;
   productId: string;
   productName: string;
@@ -18,7 +18,9 @@ export class ProductDetailComponent implements OnInit {
   productPrice: number;
   productReviews: any;
 
-  constructor(private route: ActivatedRoute, private productService : ProductService) { }
+  constructor(private route: ActivatedRoute,  
+            private router: Router,
+            private productService : ProductService) { }
 
   ngOnInit(): void {
     this.productQuantity = 1;
@@ -51,6 +53,7 @@ export class ProductDetailComponent implements OnInit {
     this.productService.addItemsToCart(this.productId, this.productQuantity).subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/shopping-cart']);
       },
       err => {
         console.log(err);
@@ -59,11 +62,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   decreaseQuantity() {
-    console.log('orson');
-    this.productQuantity = Math.max(this.productQuantity - 1, 1);
+    this.productQuantity = Math.max(this.productQuantity - 1, 0);
   }
   increaseQuantity() {
-    console.log('orson');
     this.productQuantity = Math.min(this.productQuantity + 1, 99);
   }
 }
