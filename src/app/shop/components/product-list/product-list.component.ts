@@ -8,7 +8,7 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: any[];
-  constructor(private productService : ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
 }

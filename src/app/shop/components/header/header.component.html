@@ -1,22 +1,22 @@
 <!-- Navigation -->
 <nav class="navbar-expand-lg navbar navbar-default fixed-top">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['']"><strong>Online Shop</strong></a>
-      
+      <a class="navbar-brand" [routerLink]="['']"><strong>Online Book Store</strong></a>
+      <!-- Navbar Search-->
+      <form id="navBarSearchForm" class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </form>
+    <!-- Navbar-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/admin']">{{authService.currentUser.email}}</a>
-          </li>
-          
           <li *ngIf="!authService.isLoggedIn()" class="nav-item">
             <a class="nav-link" [routerLink]="['/login']">Login</a>
           </li>
@@ -24,13 +24,20 @@
             <a class="nav-link" [routerLink]="['/register']">Register</a>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
-            <a class="nav-link" [routerLink]="['/order/history']">Orders & <small>Returns</small> </a>
+            <a class="nav-link" [routerLink]="['/order/history']"><small>Returns</small><br>&Orders </a>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
-            <a class="nav-link" [routerLink]="['/shopping-cart']"><i class="fa fa-shopping-cart"></i></a>
+            <div class="nav-link w-40">
+              <small><a [routerLink]="['/admin']">Hello!, {{authService.currentUser.email}}</a></small><br/>
+              <a (click)="authService.logout()">Logout</a>
+            </div>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
-            <a class="nav-link" (click)="authService.logout()">Logout</a>
+            <a class="nav-link" [routerLink]="['/shopping-cart']">
+              <img src="assets/images/shopping-cart.png" width="45">
+              <span class="cartHeaderText">Cart</span>
+
+              </a>
           </li>
         </ul>
       </div>
