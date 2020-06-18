@@ -14,3 +14,6 @@
   width: 100%;
   height: 3.5rem;            /* Footer height */
 }
+.cartHeaderText{
+  padding-top: 20px;
+}

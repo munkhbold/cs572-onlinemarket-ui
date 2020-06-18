@@ -2,6 +2,7 @@
 .navbar-default {
     background-color: #F8F8F8;
     border-color: #E7E7E7;
+    height: 60px;
 }
 /* Title */
 .navbar-default .navbar-brand {
@@ -58,6 +59,7 @@
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #CCC;
 }
+#navBarSearchForm input[type=text]{width:420px !important;}
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #777;
@@ -65,5 +67,17 @@
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
           color: #333;
+    }
+}
+
+.cartHeaderText {
+    font-size: 20px;
+    vertical-align: bottom;
+}
+
+@media (max-width: 600px) {
+    
+    #navBarSearchForm{
+        display: none;
     }
 }
