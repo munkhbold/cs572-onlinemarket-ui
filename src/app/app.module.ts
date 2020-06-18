@@ -24,6 +24,7 @@ import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-
 import { OrderService } from './services/order.service';
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
+import { CheckoutComponent } from './shop/components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ProductService } from './services/product.service';
     AdminProductCreateComponent,
     RegisterComponent,
     ShoppingCartComponent,
+    CheckoutComponent,
   ],
   imports: [
     FormsModule,

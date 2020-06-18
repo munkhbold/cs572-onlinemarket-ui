@@ -10,6 +10,7 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
 
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './shop/components/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
       },
       {
         path: 'shopping-cart', component: ShoppingCartComponent
+      },
+      {
+        path: 'checkout', component: CheckoutComponent
       },
     ]
   },
