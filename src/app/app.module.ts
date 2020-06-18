@@ -44,7 +44,6 @@ import { AdminProductUpdateComponent } from './admin/components/product/admin-pr
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminProductListComponent,
-    AdminProductUpdateComponent,
     AdminSidebarComponent,
     AdminProductCreateComponent,
     RegisterComponent,

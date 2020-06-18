@@ -35,9 +35,6 @@
             <h4></h4>
             <p class="card-text">{{productDescription}}</p>
             <h3>${{productPrice}}.00</h3>
-            
-            
-            
             <hr>
             <div class="row add-to-cart">
               <span class="btn btn-default btn-lg btn-qty" (click)="decreaseQuantity()">
@@ -67,14 +64,24 @@
           </div>
           
           <div class="card-body">
+            <form #reviewForm="ngForm" (ngSubmit)="leaveReview(product._id, reviewForm)" class="mb-2">
+              Over all rating <span class="text-warning">&#9734; &#9734; &#9734; &#9734; &#9734;</span>
+              <div clas="form-group">
+                <textarea ngModel name="comment" class="form-control"></textarea>
+              </div>
+              <button class="btn btn-success mt-2" type="submit">Leave a Review</button>
+            </form>
+            <hr *ngIf="productReviews.length > 0 ">
             <div *ngFor="let review of productReviews">
-              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-              4.0 stars
-              <p>{{review.comment}}</p>
-              <small class="text-muted">Posted by Anonymous on {{!review.createdAt ? "" : review.createdAt}}</small>
-              <hr>
+              <div *ngIf="review.isShow">
+                <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                4.0 stars
+                <p>{{review.comment}}</p>
+                <small class="text-muted">Posted by Anonymous on {{review.createdAt|date:"medium"}}</small>
+                <hr>
+              </div>
             </div>
-            <a href="#" class="btn btn-success">Leave a Review</a>
+            
           </div>
         </div>
         <!-- /Review -->
