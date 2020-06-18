@@ -18,7 +18,6 @@ export class ShoppingCartComponent implements OnInit {
       res => {
         this.items = res.result.items;
         this.totalPrice = 0;
-        console.log(this.items);
         for (let item of this.items) {
           
           this.totalPrice += item.quantity * item.product.unitPrice;
