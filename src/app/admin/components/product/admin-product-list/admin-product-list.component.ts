@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-product-list',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProductListComponent implements OnInit {
 
-  constructor() { }
+  products: any;
+  constructor(private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    console.log(this.authService.currentUser);
+    this.productService.getProductsBySellerId(this.authService.currentUser._id).subscribe(
+      res => {
+        this.products = res.result;
+        console.log(this.products);
+      },
+      err => {
+
+      }
+    )
   }
+
+
 
 }
