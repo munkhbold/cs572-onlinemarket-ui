@@ -7,6 +7,22 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
+  createProduct(product) {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.post<any>('http://localhost:3000/products', product, header);
+  }
+
+  getProductsBySellerId(sellerId) {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.get<any>(`http://localhost:3000/products?sellerId=${sellerId}`, header);
+  }
+
   getProducts() {
     const token = localStorage.getItem('token');
     const header = {

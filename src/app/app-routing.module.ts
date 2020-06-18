@@ -14,6 +14,7 @@ import { CheckoutComponent } from './shop/components/checkout/checkout.component
 import { CheckoutSuccessComponent } from './shop/components/checkout-success/checkout-success.component';
 import { OrderListComponent } from './shop/components/order-list/order-list.component';
 import { AdminOrderListComponent } from './admin/components/order/admin-order-list/admin-order-list.component';
+import { AdminProductUpdateComponent } from './admin/components/product/admin-product-update/admin-product-update.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,14 @@ const routes: Routes = [
       {
         path: 'products/create',
         component: AdminProductCreateComponent
+      },
+      {
+        path: 'products/:id/update',
+        component: AdminProductUpdateComponent
+      },
+      {
+        path: 'products',
+        component: AdminProductListComponent
       },
       {
         path: 'orders',
