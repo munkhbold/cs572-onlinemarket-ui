@@ -7,30 +7,32 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login(credentials) { 
+  login(credentials) {
     return this.http.post<any>('http://localhost:3000/login', credentials);
   }
 
-  register(credentials) {
-    return this.http.post<any>('http://localhost:3000/register/buyer', credentials);
+  register(credentials, role) {
+    return this.http.post<any>(`http://localhost:3000/register/${role}`, credentials);
   }
 
-  logout() { 
+  logout() {
     localStorage.removeItem('token');
   }
 
-  isLoggedIn() { 
-    let jwtHelper = new JwtHelper();
-    let token = localStorage.getItem('token');
-    if (!token) return false;
-    let expirationDate = jwtHelper.getTokenExpirationDate(token);
-    let isExpired = jwtHelper.isTokenExpired(token);
+  isLoggedIn() {
+    const jwtHelper = new JwtHelper();
+    const token = localStorage.getItem('token');
+    if (!token){
+      return false;
+    }
+    const expirationDate = jwtHelper.getTokenExpirationDate(token);
+    const isExpired = jwtHelper.isTokenExpired(token);
     return !isExpired;
   }
-  
+
   get currentUser() {
-    let token = localStorage.getItem('token');
-    if (!token) return false;
+    const token = localStorage.getItem('token');
+    if (!token) { return false; }
     return new JwtHelper().decodeToken(token).payload;
   }
 }

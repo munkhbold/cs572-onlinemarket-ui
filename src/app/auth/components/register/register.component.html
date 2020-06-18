@@ -1,13 +1,26 @@
-<form class="form-register" #f="ngForm" (ngSubmit)="register(f.value)">
-    <h2 class="form-register-heading">Please register in</h2>
-    <div *ngIf="invalidRegister" class="alert alert-danger">{{invalidMessage}}</div>
-    <label for="inputFirstname" class="sr-only">First name</label>
-    <input type="text" id="inputFirstname" name="firstname" ngModel class="form-control" placeholder="First name" required autofocus>
-    <label for="inputLastname" class="sr-only">Last name</label>
-    <input type="text" id="inputLastname" name="lastname" ngModel class="form-control" placeholder="Last name" required autofocus>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" name="email" ngModel class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-  </form>
+  <div class="text-center">
+    <form class="form-register" #f="ngForm" (ngSubmit)="register(f.value)">
+      <a [routerLink]="['']"><img class="mb-4" src="https://www.corasupport.org/wp-content/uploads/2016/01/icon-our-story-100x100-v1a@2x.png" alt="" width="72" height="72"></a>
+      <h1 class="h3 mb-3 font-weight-normal">Please register in</h1>
+      <p><a [routerLink]="['']"><small>Go to Home</small></a> | <a [routerLink]="['/login']"><small>Go to login</small></a></p>
+      <div *ngIf="invalidRegister" class="alert alert-danger">{{invalidMessage}}</div>
+      <label for="inputFirstname" class="sr-only">First name</label>
+      <input type="text" id="inputFirstname" name="firstname" ngModel class="form-control" placeholder="First name" required autofocus>
+      <label for="inputLastname" class="sr-only">Last name</label>
+      <input type="text" id="inputLastname" name="lastname" ngModel class="form-control" placeholder="Last name" required autofocus>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" name="email" ngModel class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3" >
+        <label>
+          <input type="radio" name="role" (click)="registerAs(true)" id="idSeller">
+          <label for="idSeller" class="ml-1">Seller</label>
+          <input type="radio" name="role" (click)="registerAs(false)" id="idBuyer" class="ml-2" checked>
+          <label for="idBuyer" class="ml-1">Buyer</label>
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      <p class="mt-5 mb-3 text-muted">© 2020</p>
+    </form>
+  </div>

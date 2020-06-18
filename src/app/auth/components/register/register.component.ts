@@ -11,13 +11,14 @@ export class RegisterComponent {
 
   invalidRegister: boolean;
   invalidMessage: string;
+  role = 'buyer';
 
   constructor(
     private router: Router,
     private authService: AuthService) { }
 
   register(credentials) {
-    this.authService.register(credentials)
+    this.authService.register(credentials, this.role)
       .subscribe(
         res => {
           this.router.navigate(['/login']);
@@ -29,4 +30,7 @@ export class RegisterComponent {
       );
   }
 
+  registerAs(isSeller){
+    isSeller ? this.role = 'seller' : this.role = 'buyer';
+  }
 }
