@@ -2,7 +2,7 @@
   <div class="list-group">
       <div class="d-flex justify-content-between p-3">
         <h3 class="p-1">Items in your cart</h3>
-        <span class="p-1"><a href="#" class="btn btn-warning">Checkout</a></span>
+        <span class="p-1"><a class="btn btn-warning" [routerLink]="['/checkout']">Checkout</a></span>
       </div>
       <div *ngFor="let item of items">
         <div class="list-group-item list-group-item-action ">
