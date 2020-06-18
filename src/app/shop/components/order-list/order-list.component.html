@@ -3,151 +3,57 @@
         <div class="d-flex justify-content-between p-3">
           <h3 class="p-1">Your Orders</h3>
         </div>
-        <div class="card mb-4">
+        <div *ngFor="let order of orders" class="card mb-4">
             <div class="card-header d-flex justify-content-between">
                 <div class="p-1">
                     ORDER PLACED<br>
-                    May 16, 2020
+                    {{ order.createdAt | date }}
                 </div>
                 <div class="p-1">
                     TOTAL<br>
-                    $55.99
+                    ${{ order.totalPrice }}
                 </div>
                 <div class="p-1">
                     SHIP TO<br>
                     Munkhbold Dembel
                 </div>
                 <div class="p-1">
-                    ORDER # 114-6703993-1790659<br>
+                    ORDER # {{ order._id }}<br>
                     Order Detail | Invoice
                 </div>
             </div>
           <div class="list-group-item list-group-item-action ">
-              <div class="row">
+              <div *ngFor="let item of order.items" class="row">
                   <div class="col-md-2">
-                      <img class="small-img" src="http://placehold.it/100x100">
+                      <img class="small-img" src="{{item.productId.imageUrl[0] }}" width="100">
                   </div>
                   <div class="col-md-10">
                       <div class="d-flex w-100 justify-content-between">
                           <div>
-                              <h5 class="p-1"><a>Product name</a></h5>
+                              <h5 class="p-1"><a>{{ item.productId.name }}</a></h5>
                           </div>
                           <div class="p-1">
-                              <h5 class="mb-1">$1990.00</h5>
+                              <h5 class="mb-1">${{ item.productId.unitPrice }}</h5>
                           </div>
                           <div class="p-1">
-                              <h5 class="mb-1">2</h5>
+                              <h5 class="mb-1">{{ item.quantity }}</h5>
                           </div>
                           <div class="p-1">
-                              <h5 class="mb-1">$3890.00</h5>
+                              <h5 class="mb-1">${{ item.quantity * item.productId.unitPrice }}</h5>
                           </div>
                       </div>
                       <hr>
                       <div class="d-flex justify-content-between">
-                          <p class="mb-1 p-1"> product description is the marketing copy that explains what a product is and why it's worth purchasing. </p>
-                          <span class="p-1"><a href="javascript:void(0)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
+                          <p class="mb-1 p-1"> {{ item.productId.description |slice:0:100 }}</p>
+                          
                       </div>
                   </div>
               </div>
           </div>
+          <div class="card-footer">
+            STATUS <span class="badge badge-secondary">{{ order.status }}</span>
+            <span *ngIf="order.status !== 'canceled'" class="float-right"><a href="javascript:void(0)" (click)="cancelOrder(order._id)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
         </div>
-        <!-- /card -->
-        <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between">
-                <div class="p-1">
-                    ORDER PLACED<br>
-                    May 16, 2020
-                </div>
-                <div class="p-1">
-                    TOTAL<br>
-                    $55.99
-                </div>
-                <div class="p-1">
-                    SHIP TO<br>
-                    Munkhbold Dembel
-                </div>
-                <div class="p-1">
-                    ORDER # 114-6703993-1790659<br>
-                    Order Detail | Invoice
-                </div>
-            </div>
-          <div class="list-group-item list-group-item-action">
-              <div class="row">
-                  <div class="col-md-2">
-                      <img class="small-img" src="http://placehold.it/100x100">
-                  </div>
-                  <div class="col-md-10">
-                      <div class="d-flex w-100 justify-content-between">
-                          <div>
-                              <h5 class="p-1"><a>Product name</a></h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">$1990.00</h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">2</h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">$3890.00</h5>
-                          </div>
-                      </div>
-                      <hr>
-                      <div class="d-flex justify-content-between">
-                          <p class="mb-1 p-1"> product description is the marketing copy that explains what a product is and why it's worth purchasing. </p>
-                          <span class="p-1"><a href="javascript:void(0)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-        <!-- /card2 -->
-        <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between">
-                <div class="p-1">
-                    ORDER PLACED<br>
-                    May 16, 2020
-                </div>
-                <div class="p-1">
-                    TOTAL<br>
-                    $55.99
-                </div>
-                <div class="p-1">
-                    SHIP TO<br>
-                    Munkhbold Dembel
-                </div>
-                <div class="p-1">
-                    ORDER # 114-6703993-1790659<br>
-                    Order Detail | Invoice
-                </div>
-            </div>
-          <div class="list-group-item list-group-item-action ">
-              <div class="row">
-                  <div class="col-md-2">
-                      <img class="small-img" src="http://placehold.it/100x100">
-                  </div>
-                  <div class="col-md-10">
-                      <div class="d-flex w-100 justify-content-between">
-                          <div>
-                              <h5 class="p-1"><a>Product name</a></h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">$1990.00</h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">2</h5>
-                          </div>
-                          <div class="p-1">
-                              <h5 class="mb-1">$3890.00</h5>
-                          </div>
-                      </div>
-                      <hr>
-                      <div class="d-flex justify-content-between">
-                          <p class="mb-1 p-1"> product description is the marketing copy that explains what a product is and why it's worth purchasing. </p>
-                          <span class="p-1"><a href="javascript:void(0)" class="btn btn-sm btn-secondary">Cancel Order</a></span>
-                      </div>
-                  </div>
-              </div>
-          </div>
         </div>
     </div>
   </div>
