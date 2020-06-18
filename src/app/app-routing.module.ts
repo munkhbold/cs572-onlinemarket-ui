@@ -11,6 +11,7 @@ import { AdminProductListComponent } from './admin/components/product/admin-prod
 import { RegisterComponent } from './auth/components/register/register.component';
 import { ShoppingCartComponent } from './shop/components/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './shop/components/checkout/checkout.component';
+import { CheckoutSuccessComponent } from './shop/components/checkout-success/checkout-success.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,9 @@ const routes: Routes = [
       },
       {
         path: 'checkout', component: CheckoutComponent
+      },
+      {
+        path: 'checkout/done', component: CheckoutSuccessComponent
       },
     ]
   },
