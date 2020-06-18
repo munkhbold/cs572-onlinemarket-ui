@@ -15,4 +15,12 @@ export class OrderService {
     return this.http.get<any>('http://localhost:3000/orders', header);
   }
 
+  updateOrderStatus(orderId: string, status:string){
+    let token = localStorage.getItem('token');
+    let header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    }
+    return this.http.put<any>(`http://localhost:3000/orders`,{orderId: orderId, status: status}, header);
+  }
+
 }
