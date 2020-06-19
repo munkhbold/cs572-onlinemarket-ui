@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
       res => {
-        this.products = res.result;
+        this.products = res.result.filter(e => e.isApproved === true);
       },
       err => {
         console.log(err);
