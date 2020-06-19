@@ -31,7 +31,7 @@ export class AdminPaymentListComponent implements OnInit {
           expireDate: '04/21',
           holder: 'Bilguun Tegshbaikh'
         },
-        point: -100
+        point: 100
       }
     ];
   }

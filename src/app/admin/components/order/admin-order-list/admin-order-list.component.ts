@@ -11,7 +11,7 @@ export class AdminOrderListComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.orderService.getOrdersByUser().subscribe(
+    this.orderService.getOrders().subscribe(
       res => {
         this.orders = res.result;
       }

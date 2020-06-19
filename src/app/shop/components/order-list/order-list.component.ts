@@ -22,7 +22,7 @@ export class OrderListComponent implements OnInit {
   }
 
   cancelOrder(orderId){
-    this.orderService.changeOrderStatus(orderId, 'canceled').subscribe(
+    this.orderService.cancelOrder(orderId).subscribe(
       res => {
         this.ngOnInit();
       }

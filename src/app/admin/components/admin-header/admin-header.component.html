@@ -2,6 +2,7 @@
     <a class="navbar-brand" href="/admin">Control Panel</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
     ><!-- Navbar Search-->
     <a [routerLink]="['/']" class="nav-link d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">Site</a>
+    <a href="javascript:void(0)" class="nav-link" >{{authService.currentUser.email}}</a>
     <a href="javascript:void(0)" class="nav-link" (click)="logout()">Logout</a>
 
     <!-- Navbar-->
