@@ -29,7 +29,7 @@
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
             <div class="nav-link w-40">
               <small><a [routerLink]="['/admin']">Hello!, {{authService.currentUser.email}}</a></small><br/>
-              <a (click)="authService.logout()">Logout</a>
+              <a class="logout-button" href="javascript:void(0)" (click)="authService.logout()">Logout</a>
             </div>
           </li>
           <li *ngIf="authService.isLoggedIn()" class="nav-item">
