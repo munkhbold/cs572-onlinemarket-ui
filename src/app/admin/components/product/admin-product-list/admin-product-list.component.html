@@ -24,6 +24,7 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Approved</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -33,9 +34,11 @@
                         <td><img width=100 src="{{product.imageUrl[0]}}"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.description | slice:0:50}} ...</td>
+                        <td>{{product.isApproved}}</td>
                         <td>
                             <select #selectAction (change)="makeAction(product._id, selectAction.value)">
                                 <option>Action</option>
+                                <option value="approve">Approve</option>
                                 <option value="edit">Edit</option>
                                 <option value="delete">Delete</option>
                                 <option value="reviews">Reviews</option>

@@ -44,8 +44,16 @@ export class AdminProductListComponent implements OnInit {
       case 'edit': this.router.navigate(['/admin/products', productId, 'update']); break;
       case 'reviews': this.router.navigate(['/admin/products', productId, 'reviews']); break;
       case 'delete': this.deleteProduct(productId); break;
+      case 'approve': this.approveProduct(productId); break;
       default: break;
     }
+  }
+  approveProduct(productId){
+    this.productService.approveProduct(productId).subscribe(
+      res => {
+        this.ngOnInit();
+      }
+    );
   }
   deleteProduct(productId) {
     this.confirmationDialogService.confirm('Please confirm', 'Do you really want to delete a product?')
