@@ -72,4 +72,12 @@ export class ProductService {
     return this.http.post<any>(`http://localhost:3000/products/${productId}/reviews`, {comment}, header);
   }
 
+  approveReview(productId: string, reviewId: string){
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.put<any>(`http://localhost:3000/products/${productId}/reviews/${reviewId}/approve`, {}, header);
+  }
+
 }
