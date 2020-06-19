@@ -23,6 +23,14 @@ export class ProductService {
     return this.http.put<any>(`http://localhost:3000/products/${productId}`, updatedProduct, header);
   }
 
+  deleteProduct(productId) {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.delete<any>(`http://localhost:3000/products/${productId}`, header);
+  }
+
   getProductsBySellerId(sellerId) {
     const token = localStorage.getItem('token');
     const header = {
