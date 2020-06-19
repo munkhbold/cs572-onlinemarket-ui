@@ -30,6 +30,10 @@ import { OrderListComponent } from './shop/components/order-list/order-list.comp
 import { AdminOrderListComponent } from './admin/components/order/admin-order-list/admin-order-list.component';
 import { AdminProductUpdateComponent } from './admin/components/product/admin-product-update/admin-product-update.component';
 import { AdminProductReviewsComponent } from './admin/components/product/admin-product-reviews/admin-product-reviews.component';
+import { ConfirmationDialogComponent } from './admin/components/product/admin-product-list/confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationDialogService } from './admin/components/product/admin-product-list/confirmation-dialog/confirmation-dialog.service';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -55,18 +59,22 @@ import { AdminProductReviewsComponent } from './admin/components/product/admin-p
     AdminOrderListComponent,
     AdminProductUpdateComponent,
     AdminProductReviewsComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     FormsModule,
     HttpModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [
     OrderService,
     AuthService,
-    ProductService
+    ProductService,
+    NgbModule,
+    ConfirmationDialogService
   ],
   bootstrap: [AppComponent]
 })
