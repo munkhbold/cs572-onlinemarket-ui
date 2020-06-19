@@ -17,6 +17,7 @@ import { AdminOrderListComponent } from './admin/components/order/admin-order-li
 import { AdminProductUpdateComponent } from './admin/components/product/admin-product-update/admin-product-update.component';
 import { AdminProductReviewsComponent } from './admin/components/product/admin-product-reviews/admin-product-reviews.component';
 import { AdminGuard, LoginGuard } from './guards/role.guard';
+import { AdminPaymentListComponent } from './admin/components/payment/admin-payment-list/admin-payment-list.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
       {
         path: 'orders',
         component: AdminOrderListComponent
+      },
+      {
+        path: 'payments',
+        component: AdminPaymentListComponent
       },
 
   ]

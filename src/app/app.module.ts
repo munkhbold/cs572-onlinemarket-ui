@@ -35,6 +35,7 @@ import { ConfirmationDialogService } from './admin/components/product/admin-prod
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminGuard, LoginGuard } from './guards/role.guard';
+import { AdminPaymentListComponent } from './admin/components/payment/admin-payment-list/admin-payment-list.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AdminGuard, LoginGuard } from './guards/role.guard';
     AdminProductUpdateComponent,
     AdminProductReviewsComponent,
     ConfirmationDialogComponent,
+    AdminPaymentListComponent,
   ],
   imports: [
     FormsModule,

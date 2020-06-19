@@ -1,0 +1,38 @@
+
+<h1 class="mt-4">Payments</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a [routerLink]="['/admin']">Dashboard</a></li>
+    <li class="breadcrumb-item active">Payments</li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Payment List</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Buyer</th>
+                        <th>Created Date</th>
+                        <th>Cart Info</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of payments; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{ payment.clientId.email }}</td>
+                        <td>{{ payment.createdAt|date:"medium"}}</td>
+                        <td>
+                            **** **** **** {{ payment.cart.number|slice:8:12 }}<br/>
+                            <small>{{ payment.cart.expireDate }}</small>/
+                            <small>{{ payment.cart.holder }}</small>
+                        </td>
+                        <td>{{ payment.point}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
