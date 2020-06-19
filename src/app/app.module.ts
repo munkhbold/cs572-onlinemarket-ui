@@ -29,6 +29,7 @@ import { CheckoutSuccessComponent } from './shop/components/checkout-success/che
 import { OrderListComponent } from './shop/components/order-list/order-list.component';
 import { AdminOrderListComponent } from './admin/components/order/admin-order-list/admin-order-list.component';
 import { AdminProductUpdateComponent } from './admin/components/product/admin-product-update/admin-product-update.component';
+import { AdminProductReviewsComponent } from './admin/components/product/admin-product-reviews/admin-product-reviews.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AdminProductUpdateComponent } from './admin/components/product/admin-pr
     OrderListComponent,
     AdminOrderListComponent,
     AdminProductUpdateComponent,
+    AdminProductReviewsComponent,
   ],
   imports: [
     FormsModule,

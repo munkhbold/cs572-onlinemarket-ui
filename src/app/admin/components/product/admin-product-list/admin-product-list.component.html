@@ -20,18 +20,27 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Edit</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
-                        <td><img style="width: 100px;" src="{{product.imageUrl[0]}}"></td>
+                    <tr *ngFor="let product of products; index as i">
+                        <td>{{i+1}}</td>
+                        <td><img width=100 src="{{product.imageUrl[0]}}"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.description | slice:0:50}} ...</td>
-                        <td><a class="btn" [routerLink]="['/admin/products', product._id, 'update']"><i class="icon-edit"></i> Edit</a></td>
+                        <td>
+                            <select #selectAction (change)="makeAction(product._id, selectAction.value)">
+                                <option>Action</option>
+                                <option value="edit">Edit</option>
+                                <option value="delete">Delete</option>
+                                <option value="reviews">Reviews</option>
+                            </select>
+                        </td>
                     </tr>
                 </tbody>
             </table>

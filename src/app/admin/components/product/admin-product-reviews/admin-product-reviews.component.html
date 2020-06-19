@@ -1,0 +1,37 @@
+
+<h1 class="mt-4">Products Reviews</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a [routerLink]="['admin']">Dashboard</a></li>
+    <li class="breadcrumb-item active">Products</li>
+    <li class="breadcrumb-item active">Reviews</li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Product List</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Verified User</th>
+                        <th>Comment</th>
+                        <th>Approved</th>
+                        <th width=240>Created Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let review of reviews; index as i">
+                        <td>{{i+1}}</td>
+                        <td>Munkhbold Dembel {{ review.clientId.email }}</td>
+                        <td>{{ review.comment }}</td>
+                        <td>{{ review.isShow }}</td>
+                        <td>{{ review.createdAt|date:"medium" }}</td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
