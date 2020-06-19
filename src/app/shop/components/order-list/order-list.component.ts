@@ -28,4 +28,8 @@ export class OrderListComponent implements OnInit {
       }
     );
   }
+
+  printInvoice(){
+    window.print();
+  }
 }

@@ -16,6 +16,7 @@ import { OrderListComponent } from './shop/components/order-list/order-list.comp
 import { AdminOrderListComponent } from './admin/components/order/admin-order-list/admin-order-list.component';
 import { AdminProductUpdateComponent } from './admin/components/product/admin-product-update/admin-product-update.component';
 import { AdminProductReviewsComponent } from './admin/components/product/admin-product-reviews/admin-product-reviews.component';
+import { AdminGuard, LoginGuard } from './guards/role.guard';
 
 const routes: Routes = [
   {
@@ -28,16 +29,16 @@ const routes: Routes = [
         path: 'products/:id', component: ProductDetailComponent
       },
       {
-        path: 'shopping-cart', component: ShoppingCartComponent
+        path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [LoginGuard]
       },
       {
-        path: 'checkout', component: CheckoutComponent
+        path: 'checkout', component: CheckoutComponent, canActivate: [LoginGuard]
       },
       {
-        path: 'checkout/done', component: CheckoutSuccessComponent
+        path: 'checkout/done', component: CheckoutSuccessComponent, canActivate: [LoginGuard]
       },
       {
-        path: 'order/history', component: OrderListComponent
+        path: 'order/history', component: OrderListComponent, canActivate: [LoginGuard]
       },
     ]
   },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'admin',
     component: AdminCoreComponent,
+    canActivate: [AdminGuard],
     children: [
       {
         path: '',
@@ -72,6 +74,9 @@ const routes: Routes = [
       },
 
   ]
+  },
+  {
+    path: '**', redirectTo: '/'
   }
 ];
 

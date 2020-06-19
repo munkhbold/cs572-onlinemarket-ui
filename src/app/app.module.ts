@@ -34,6 +34,7 @@ import { ConfirmationDialogComponent } from './admin/components/product/admin-pr
 import { ConfirmationDialogService } from './admin/components/product/admin-product-list/confirmation-dialog/confirmation-dialog.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminGuard, LoginGuard } from './guards/role.guard';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuthService,
     ProductService,
     NgbModule,
-    ConfirmationDialogService
+    ConfirmationDialogService,
+    AdminGuard,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
