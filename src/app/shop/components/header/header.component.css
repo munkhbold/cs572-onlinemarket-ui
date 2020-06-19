@@ -81,3 +81,13 @@
         display: none;
     }
 }
+
+.logout-button  {
+    color: #777;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    color: #333;
+    text-decoration:none;
+}
