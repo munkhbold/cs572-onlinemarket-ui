@@ -13,7 +13,8 @@
                     <tr>
                         <th width=10>No</th>
                         <th width=250>Ordered Date</th>
-                        <th width="40%">Ship to</th>
+                        <th>Shipping</th>
+                        <th>Billing</th>
                         <th width=100>Status</th>
                         <th width=20>Items</th>
                         <th>Total Price</th>
@@ -31,6 +32,16 @@
                                 {{ order.shippingAddress.city }},
                                 {{ order.shippingAddress.state }},
                                 {{ order.shippingAddress.zipCode }}
+                            </small>
+
+                        </td>
+                        <td>
+                            {{order.clientId.email}}<br>
+                            <small>
+                                {{ order.billingAddress.street }},
+                                {{ order.billingAddress.city }},
+                                {{ order.billingAddress.state }},
+                                {{ order.billingAddress.zipCode }}
                             </small>
 
                         </td>

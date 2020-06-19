@@ -12,26 +12,38 @@ import { ConfirmationDialogService } from './confirmation-dialog/confirmation-di
 export class AdminProductListComponent implements OnInit {
 
   products: any;
-  constructor(private productService: ProductService, private authService: AuthService, private router: Router, private confirmationDialogService: ConfirmationDialogService) { }
+  constructor(private productService: ProductService,
+              private authService: AuthService,
+              private router: Router,
+              private confirmationDialogService: ConfirmationDialogService) { }
 
   ngOnInit(): void {
-    console.log(this.authService.currentUser);
-    this.productService.getProductsBySellerId(this.authService.currentUser._id).subscribe(
-      res => {
-        this.products = res.result;
-        console.log(this.products);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    if (this.authService.currentUser.role === 'seller'){
+      this.productService.getProductsBySellerId(this.authService.currentUser._id).subscribe(
+        res => {
+          this.products = res.result;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } else {
+      this.productService.getProducts().subscribe(
+        res => {
+          this.products = res.result;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   makeAction(productId, action){
     switch (action){
       case 'edit': this.router.navigate(['/admin/products', productId, 'update']); break;
       case 'reviews': this.router.navigate(['/admin/products', productId, 'reviews']); break;
-      case 'delete': this.deleteProduct(productId);
+      case 'delete': this.deleteProduct(productId); break;
       default: break;
     }
   }
