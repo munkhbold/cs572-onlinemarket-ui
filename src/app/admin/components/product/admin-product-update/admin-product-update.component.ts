@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-product-update',
@@ -16,7 +16,8 @@ export class AdminProductUpdateComponent implements OnInit {
   productId: string;
 
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -34,21 +35,22 @@ export class AdminProductUpdateComponent implements OnInit {
         }
       )
     });
-    // this.productService.getProductById
-    // this.product.sub
-    // this.data = "hello";
   }
   updateProduct() {
-    console.log(this.productImageUrl);
-    // product.imageUrl = [product.imageUrl];
-    // this.productService.createProduct(product).subscribe(
-    //   res => {
-    //     console.log(res);
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // )
+    let updatedProduct = {
+      name: this.productName,
+      description: this.productDescription,
+      imageUrl: [this.productImageUrl],
+      unitPrice: this.productUnitPrice
+    };
+    this.productService.updateProduct(this.productId, updatedProduct).subscribe(
+      res => {
+        this.router.navigate(['/products', this.productId]);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

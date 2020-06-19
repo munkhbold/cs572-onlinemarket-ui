@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-product-create',
@@ -8,7 +9,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminProductCreateComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private router: Router) { }
 
   ngOnInit(): void {
     
@@ -17,7 +19,8 @@ export class AdminProductCreateComponent implements OnInit {
     product.imageUrl = [product.imageUrl];
     this.productService.createProduct(product).subscribe(
       res => {
-        console.log(res);
+        let productId = res.result.product._id;
+        this.router.navigate(['/products', productId]);
       },
       err => {
         console.log(err);

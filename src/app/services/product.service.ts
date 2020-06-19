@@ -15,6 +15,14 @@ export class ProductService {
     return this.http.post<any>('http://localhost:3000/products', product, header);
   }
 
+  updateProduct(productId, updatedProduct) {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: new HttpHeaders().set('Authorization',  `Basic ${token}`)
+    };
+    return this.http.put<any>(`http://localhost:3000/products/${productId}`, updatedProduct, header);
+  }
+
   getProductsBySellerId(sellerId) {
     const token = localStorage.getItem('token');
     const header = {
