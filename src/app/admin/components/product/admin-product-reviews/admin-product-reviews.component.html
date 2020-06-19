@@ -1,8 +1,8 @@
 
 <h1 class="mt-4">Products Reviews</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item"><a [routerLink]="['admin']">Dashboard</a></li>
-    <li class="breadcrumb-item active">Products</li>
+    <li class="breadcrumb-item"><a [routerLink]="['/admin']">Dashboard</a></li>
+    <li class="breadcrumb-item active"><a [routerLink]="['/admin/products']">Products</a></li>
     <li class="breadcrumb-item active">Reviews</li>
 </ol>
 <div class="card mb-4">
@@ -23,11 +23,13 @@
                 <tbody>
                     <tr *ngFor="let review of reviews; index as i">
                         <td>{{i+1}}</td>
-                        <td>Munkhbold Dembel {{ review.clientId.email }}</td>
+                        <td>{{ review.clientId.email }}</td>
                         <td>{{ review.comment }}</td>
                         <td>{{ review.isShow }}</td>
                         <td>{{ review.createdAt|date:"medium" }}</td>
                         <td>
+                            <button *ngIf="!review.isShow" class="btn btn-primary" (click)="approveReview(review._id)">Approve</button>
+                            <button *ngIf="review.isShow" class="btn btn-primary" (click)="approveReview(review._id)">Disapprove</button>
                         </td>
                     </tr>
                 </tbody>

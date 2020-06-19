@@ -18,10 +18,20 @@ export class AdminProductReviewsComponent implements OnInit {
         res => {
           this.product = res.result.product;
           this.reviews = this.product.reviews;
-          console.log(this.reviews);
         }
       );
     });
+  }
+
+  approveReview(reviewId){
+    this.productService.approveReview(this.product._id, reviewId).subscribe(
+      res => {
+        this.ngOnInit();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }
